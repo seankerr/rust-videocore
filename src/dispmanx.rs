@@ -58,54 +58,54 @@ pub type Protection   = uint32_t;
 #[repr(C)]
 pub enum FlagsAlpha {
     // bottom 2 bits sets the alpha mode
-    DISPMANX_FLAGS_ALPHA_FROM_SOURCE       = 0,
-    DISPMANX_FLAGS_ALPHA_FIXED_ALL_PIXELS  = 1,
-    DISPMANX_FLAGS_ALPHA_FIXED_NON_ZERO    = 2,
-    DISPMANX_FLAGS_ALPHA_FIXED_EXCEED_0X07 = 3,
+    FROM_SOURCE       = 0,
+    FIXED_ALL_PIXELS  = 1,
+    FIXED_NON_ZERO    = 2,
+    FIXED_EXCEED_0X07 = 3,
 
-    DISPMANX_FLAGS_ALPHA_PREMULT = 1 << 16,
-    DISPMANX_FLAGS_ALPHA_MIX     = 1 << 17
+    PREMULT = 1 << 16,
+    MIX     = 1 << 17
 }
 
 #[repr(C)]
 pub enum FlagsClamp {
-    DISPMANX_FLAGS_CLAMP_NONE             = 0,
-    DISPMANX_FLAGS_CLAMP_LUMA_TRANSPARENT = 1,
-    DISPMANX_FLAGS_CLAMP_TRANSPARENT      = 2,
-    DISPMANX_FLAGS_CLAMP_REPLACE          = 3
+    NONE             = 0,
+    LUMA_TRANSPARENT = 1,
+    TRANSPARENT      = 2,
+    REPLACE          = 3
 }
 
 #[repr(C)]
 pub enum FlagsKeymask {
-    DISPMANX_FLAGS_KEYMASK_OVERRIDE = 1,
-    DISPMANX_FLAGS_KEYMASK_SMOOTH   = 1 << 1,
-    DISPMANX_FLAGS_KEYMASK_CR_INV   = 1 << 2,
-    DISPMANX_FLAGS_KEYMASK_CB_INV   = 1 << 3,
-    DISPMANX_FLAGS_KEYMASK_YY_INV   = 1 << 4
+    OVERRIDE = 1,
+    SMOOTH   = 1 << 1,
+    CR_INV   = 1 << 2,
+    CB_INV   = 1 << 3,
+    YY_INV   = 1 << 4
 }
 
 #[repr(C)]
 pub enum Status {
-    DISPMANX_SUCCESS = 0,
-    DISPMANX_INVALID = -1
+    SUCCESS = 0,
+    INVALID = -1
 }
 
 #[repr(C)]
 pub enum Transform {
-    DISPMANX_NO_ROTATE  = 0,
-    DISPMANX_ROTATE_90  = 1,
-    DISPMANX_ROTATE_180 = 2,
-    DISPMANX_ROTATE_270 = 3,
+    NO_ROTATE  = 0,
+    ROTATE_90  = 1,
+    ROTATE_180 = 2,
+    ROTATE_270 = 3,
 
-    DISPMANX_FLIP_HRIZ = 1 << 16,
-    DISPMANX_FLIP_VERT = 1 << 17,
+    FLIP_HRIZ = 1 << 16,
+    FLIP_VERT = 1 << 17,
 
     // extra flags for controlling snapshot behaviour
-    DISPMANX_SNAPSHOT_NO_YUV        = 1 << 24,
-    DISPMANX_SNAPSHOT_NO_RGB        = 1 << 25,
-    DISPMANX_SNAPSHOT_FILL          = 1 << 26,
-    DISPMANX_SNAPSHOT_SWAP_RED_BLUE = 1 << 27,
-    DISPMANX_SNAPSHOT_PACK          = 1 << 28
+    SNAPSHOT_NO_YUV        = 1 << 24,
+    SNAPSHOT_NO_RGB        = 1 << 25,
+    SNAPSHOT_FILL          = 1 << 26,
+    SNAPSHOT_SWAP_RED_BLUE = 1 << 27,
+    SNAPSHOT_PACK          = 1 << 28
 }
 
 // -------------------------------------------------------------------------------------------------
@@ -200,18 +200,18 @@ pub struct VCAlpha {
 // CONSTANTS
 // -------------------------------------------------------------------------------------------------
 
-pub const NO_HANDLE:       uint32_t = 0;
-pub const PROTECTION_MAX:  uint32_t = 0x0f;
-pub const PROTECTION_NONE: uint32_t = 0;
-pub const PROTECTION_HDCP: uint32_t = 11; // derived from the WM DRM levels, 101-300
+pub const DISPMANX_NO_HANDLE:       uint32_t = 0;
+pub const DISPMANX_PROTECTION_MAX:  uint32_t = 0x0f;
+pub const DISPMANX_PROTECTION_NONE: uint32_t = 0;
+pub const DISPMANX_PROTECTION_HDCP: uint32_t = 11; // derived from the WM DRM levels, 101-300
 
-pub const ID_MAIN_LCD:    uint32_t = 0;
-pub const ID_AUX_LCD:     uint32_t = 1;
-pub const ID_HDMI:        uint32_t = 2;
-pub const ID_SDTV:        uint32_t = 3;
-pub const ID_FORCE_LCD:   uint32_t = 4;
-pub const ID_FORCE_TV:    uint32_t = 5;
-pub const ID_FORCE_OTHER: uint32_t = 6; // non-default display
+pub const DISPMANX_ID_MAIN_LCD:    uint32_t = 0;
+pub const DISPMANX_ID_AUX_LCD:     uint32_t = 1;
+pub const DISPMANX_ID_HDMI:        uint32_t = 2;
+pub const DISPMANX_ID_SDTV:        uint32_t = 3;
+pub const DISPMANX_ID_FORCE_LCD:   uint32_t = 4;
+pub const DISPMANX_ID_FORCE_TV:    uint32_t = 5;
+pub const DISPMANX_ID_FORCE_OTHER: uint32_t = 6; // non-default display
 
 // -------------------------------------------------------------------------------------------------
 // FUNCTIONS

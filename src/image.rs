@@ -31,104 +31,104 @@ use libc::int32_t;
 #[repr(C)]
 pub enum ImageBayerFormat {
     //defined to be identical to register bits
-    IMAGE_BAYER_RAW6             = 0,
-    IMAGE_BAYER_RAW7             = 1,
-    IMAGE_BAYER_RAW8             = 2,
-    IMAGE_BAYER_RAW10            = 3,
-    IMAGE_BAYER_RAW12            = 4,
-    IMAGE_BAYER_RAW14            = 5,
-    IMAGE_BAYER_RAW16            = 6,
-    IMAGE_BAYER_RAW10_8          = 7,
-    IMAGE_BAYER_RAW12_8          = 8,
-    IMAGE_BAYER_RAW14_8          = 9,
-    IMAGE_BAYER_RAW10L           = 11,
-    IMAGE_BAYER_RAW12L           = 12,
-    IMAGE_BAYER_RAW14L           = 13,
-    IMAGE_BAYER_RAW16_BIG_ENDIAN = 14,
-    IMAGE_BAYER_RAW4             = 15,
+    RAW6             = 0,
+    RAW7             = 1,
+    RAW8             = 2,
+    RAW10            = 3,
+    RAW12            = 4,
+    RAW14            = 5,
+    RAW16            = 6,
+    RAW10_8          = 7,
+    RAW12_8          = 8,
+    RAW14_8          = 9,
+    RAW10L           = 11,
+    RAW12L           = 12,
+    RAW14L           = 13,
+    RAW16_BIG_ENDIAN = 14,
+    RAW4             = 15,
 }
 
 #[repr(C)]
 pub enum ImageBayerOrder {
     //defined to be identical to register bits
-    IMAGE_BAYER_RGGB = 0,
-    IMAGE_BAYER_GBRG = 1,
-    IMAGE_BAYER_BGGR = 2,
-    IMAGE_BAYER_GRBG = 3
+    RGGB = 0,
+    GBRG = 1,
+    BGGR = 2,
+    GRBG = 3
 }
 
 #[repr(C)]
 pub enum ImageTransform {
-    IMAGE_ROT0           = 0,
-    IMAGE_MIRROR_ROT0    = (1<<0),
-    IMAGE_MIRROR_ROT180  = (1<<1),
-    IMAGE_ROT180         = (1<<0)|(1<<1),
-    IMAGE_MIRROR_ROT90   = (1<<2),
-    IMAGE_ROT270         = (1<<2)|(1<<0),
-    IMAGE_ROT90          = (1<<2)|(1<<1),
-    IMAGE_MIRROR_ROT270  = (1<<2)|(1<<0)|(1<<1)
+    ROT0           = 0,
+    MIRROR_ROT0    = (1<<0),
+    MIRROR_ROT180  = (1<<1),
+    ROT180         = (1<<0)|(1<<1),
+    MIRROR_ROT90   = (1<<2),
+    ROT270         = (1<<2)|(1<<0),
+    ROT90          = (1<<2)|(1<<1),
+    MIRROR_ROT270  = (1<<2)|(1<<0)|(1<<1)
 }
 
 #[repr(C)]
 pub enum ImageType {
-    IMAGE_MIN    = 0,    //bounds for error checking
-    IMAGE_RGB565 = 1,
-    IMAGE_1BPP,
-    IMAGE_YUV420,
-    IMAGE_48BPP,
-    IMAGE_RGB888,
-    IMAGE_8BPP,
-    IMAGE_4BPP,          // 4bpp palettised image
-    IMAGE_3D32,          // A separated format of 16 colour/light shorts followed by 16 z values
-    IMAGE_3D32B,         // 16 colours followed by 16 z values
-    IMAGE_3D32MAT,       // A separated format of 16 material/colour/light shorts followed by 16 z values
-    IMAGE_RGB2X9,        // 32 bit format containing 18 bits of 6.6.6 RGB, 9 bits per short
-    IMAGE_RGB666,        // 32-bit format holding 18 bits of 6.6.6 RGB
-    IMAGE_PAL4_OBSOLETE, // 4bpp palettised image with embedded palette
-    IMAGE_PAL8_OBSOLETE, // 8bpp palettised image with embedded palette
-    IMAGE_RGBA32,        // RGB888 with an alpha byte after each pixel  // xxx: isn't it BEFORE each pixel?
-    IMAGE_YUV422,        // a line of Y (32-byte padded), a line of U (16-byte padded), and a line of V (16-byte padded)
-    IMAGE_RGBA565,       // RGB565 with a transparent patch
-    IMAGE_RGBA16,        // Compressed (4444) version of RGBA32
-    IMAGE_YUV_UV,        // VCIII codec format
-    IMAGE_TF_RGBA32,     // VCIII T-format RGBA8888
-    IMAGE_TF_RGBX32,     // VCIII T-format RGBx8888
-    IMAGE_TF_FLOAT,      // VCIII T-format float
-    IMAGE_TF_RGBA16,     // VCIII T-format RGBA4444
-    IMAGE_TF_RGBA5551,   // VCIII T-format RGB5551
-    IMAGE_TF_RGB565,     // VCIII T-format RGB565
-    IMAGE_TF_YA88,       // VCIII T-format 8-bit luma and 8-bit alpha
-    IMAGE_TF_BYTE,       // VCIII T-format 8 bit generic sample
-    IMAGE_TF_PAL8,       // VCIII T-format 8-bit palette
-    IMAGE_TF_PAL4,       // VCIII T-format 4-bit palette
-    IMAGE_TF_ETC1,       // VCIII T-format Ericsson Texture Compressed
-    IMAGE_BGR888,        // RGB888 with R & B swapped
-    IMAGE_BGR888_NP,     // RGB888 with R & B swapped, but with no pitch, i.e. no padding after each row of pixels
-    IMAGE_BAYER,         // Bayer image, extra defines which variant is being used
-    IMAGE_CODEC,         // General wrapper for codec images e.g. JPEG from camera
-    IMAGE_YUV_UV32,      // VCIII codec format
-    IMAGE_TF_Y8,         // VCIII T-format 8-bit luma
-    IMAGE_TF_A8,         // VCIII T-format 8-bit alpha
-    IMAGE_TF_SHORT,      // VCIII T-format 16-bit generic sample
-    IMAGE_TF_1BPP,       // VCIII T-format 1bpp black/white
-    IMAGE_OPENGL,
-    IMAGE_YUV444I,       // VCIII-B0 HVS YUV 4:4:4 interleaved samples
-    IMAGE_YUV422PLANAR,  // Y, U, & V planes separately (IMAGE_YUV422 has them interleaved on a per line basis)
-    IMAGE_ARGB8888,      // 32bpp with 8bit alpha at MS byte, with R, G, B (LS byte)
-    IMAGE_XRGB8888,      // 32bpp with 8bit unused at MS byte, with R, G, B (LS byte)
-    IMAGE_YUV422YUYV,    // interleaved 8 bit samples of Y, U, Y, V
-    IMAGE_YUV422YVYU,    // interleaved 8 bit samples of Y, V, Y, U
-    IMAGE_YUV422UYVY,    // interleaved 8 bit samples of U, Y, V, Y
-    IMAGE_YUV422VYUY,    // interleaved 8 bit samples of V, Y, U, Y
-    IMAGE_RGBX32,        // 32bpp like RGBA32 but with unused alpha
-    IMAGE_RGBX8888,      // 32bpp, corresponding to RGBA with unused alpha
-    IMAGE_BGRX8888,      // 32bpp, corresponding to BGRA with unused alpha
-    IMAGE_YUV420SP,      // Y as a plane, then UV byte interleaved in plane with with same pitch, half height
-    IMAGE_YUV444PLANAR,  // Y, U, & V planes separately 4:4:4
-    IMAGE_TF_U8,         // T-format 8-bit U - same as TF_Y8 buf from U plane
-    IMAGE_TF_V8,         // T-format 8-bit U - same as TF_Y8 buf from V plane
-    IMAGE_MAX,           // bounds for error checking
-    IMAGE_FORCE_ENUM_16BIT = 0xffff,
+    MIN    = 0,    //bounds for error checking
+    RGB565 = 1,
+    _1BPP,
+    YUV420,
+    _48BPP,
+    RGB888,
+    _8BPP,
+    _4BPP,          // 4bpp palettised image
+    _3D32,          // A separated format of 16 colour/light shorts followed by 16 z values
+    _3D32B,         // 16 colours followed by 16 z values
+    _3D32MAT,       // A separated format of 16 material/colour/light shorts followed by 16 z values
+    RGB2X9,        // 32 bit format containing 18 bits of 6.6.6 RGB, 9 bits per short
+    RGB666,        // 32-bit format holding 18 bits of 6.6.6 RGB
+    PAL4_OBSOLETE, // 4bpp palettised image with embedded palette
+    PAL8_OBSOLETE, // 8bpp palettised image with embedded palette
+    RGBA32,        // RGB888 with an alpha byte after each pixel  // xxx: isn't it BEFORE each pixel?
+    YUV422,        // a line of Y (32-byte padded), a line of U (16-byte padded), and a line of V (16-byte padded)
+    RGBA565,       // RGB565 with a transparent patch
+    RGBA16,        // Compressed (4444) version of RGBA32
+    YUV_UV,        // VCIII codec format
+    TF_RGBA32,     // VCIII T-format RGBA8888
+    TF_RGBX32,     // VCIII T-format RGBx8888
+    TF_FLOAT,      // VCIII T-format float
+    TF_RGBA16,     // VCIII T-format RGBA4444
+    TF_RGBA5551,   // VCIII T-format RGB5551
+    TF_RGB565,     // VCIII T-format RGB565
+    TF_YA88,       // VCIII T-format 8-bit luma and 8-bit alpha
+    TF_BYTE,       // VCIII T-format 8 bit generic sample
+    TF_PAL8,       // VCIII T-format 8-bit palette
+    TF_PAL4,       // VCIII T-format 4-bit palette
+    TF_ETC1,       // VCIII T-format Ericsson Texture Compressed
+    BGR888,        // RGB888 with R & B swapped
+    BGR888_NP,     // RGB888 with R & B swapped, but with no pitch, i.e. no padding after each row of pixels
+    BAYER,         // Bayer image, extra defines which variant is being used
+    CODEC,         // General wrapper for codec images e.g. JPEG from camera
+    YUV_UV32,      // VCIII codec format
+    TF_Y8,         // VCIII T-format 8-bit luma
+    TF_A8,         // VCIII T-format 8-bit alpha
+    TF_SHORT,      // VCIII T-format 16-bit generic sample
+    TF_1BPP,       // VCIII T-format 1bpp black/white
+    OPENGL,
+    YUV444I,       // VCIII-B0 HVS YUV 4:4:4 interleaved samples
+    YUV422PLANAR,  // Y, U, & V planes separately (YUV422 has them interleaved on a per line basis)
+    ARGB8888,      // 32bpp with 8bit alpha at MS byte, with R, G, B (LS byte)
+    XRGB8888,      // 32bpp with 8bit unused at MS byte, with R, G, B (LS byte)
+    YUV422YUYV,    // interleaved 8 bit samples of Y, U, Y, V
+    YUV422YVYU,    // interleaved 8 bit samples of Y, V, Y, U
+    YUV422UYVY,    // interleaved 8 bit samples of U, Y, V, Y
+    YUV422VYUY,    // interleaved 8 bit samples of V, Y, U, Y
+    RGBX32,        // 32bpp like RGBA32 but with unused alpha
+    RGBX8888,      // 32bpp, corresponding to RGBA with unused alpha
+    BGRX8888,      // 32bpp, corresponding to BGRA with unused alpha
+    YUV420SP,      // Y as a plane, then UV byte interleaved in plane with with same pitch, half height
+    YUV444PLANAR,  // Y, U, & V planes separately 4:4:4
+    TF_U8,         // T-format 8-bit U - same as TF_Y8 buf from U plane
+    TF_V8,         // T-format 8-bit U - same as TF_Y8 buf from V plane
+    MAX,           // bounds for error checking
+    FORCE_ENUM_16BIT = 0xffff,
 }
 
 // -------------------------------------------------------------------------------------------------
