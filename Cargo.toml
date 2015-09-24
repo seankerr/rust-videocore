@@ -1,13 +1,13 @@
 [package]
 name          = "videocore"
-version       = "0.1.0"
+version       = "0.1.1"
 authors       = ["Sean Kerr <sean@code-box.org>"]
 license       = "Apache-2.0"
 description   = "Rust bindings for Broadcom's VideoCore API"
 homepage      = "https://github.com/seankerr/rust-videocore"
 repository    = "https://github.com/seankerr/rust-videocore"
 readme        = "README.md"
-keywords      = ["bcm", "broadcom", "raspberry", "raspberrypi", "rpi", "videocore"]
+keywords      = ["bcm", "broadcom", "raspberrypi", "rpi", "videocore"]
 exclude       = [".gitignore"]
 
 [dependencies]
