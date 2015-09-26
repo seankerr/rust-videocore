@@ -23,7 +23,8 @@
 // -------------------------------------------------------------------------------------------------
 
 // system
-use libc::{ c_void,
+use libc::{ c_int,
+            c_void,
             int32_t,
             uint8_t,
             uint32_t };
@@ -194,6 +195,13 @@ pub struct VCAlpha {
     pub flags:   FlagsAlpha,
     pub opacity: uint32_t,
     pub mask:    ResourceHandle
+}
+
+#[repr(C)]
+pub struct Window {
+    pub element: ElementHandle,
+    pub width:   c_int,
+    pub height:  c_int
 }
 
 // -------------------------------------------------------------------------------------------------
