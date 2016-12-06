@@ -1,7 +1,7 @@
 [package]
 name          = "videocore"
 version       = "0.1.2"
-authors       = ["Sean Kerr <sean@code-box.org>"]
+authors       = ["Sean Kerr <sean@metatomic.io>"]
 license       = "Apache-2.0"
 description   = "Rust bindings for Broadcom's VideoCore API"
 homepage      = "https://github.com/seankerr/rust-videocore"
